@@ -1,0 +1,50 @@
+
+HOME PAGE
+---------
+
+Scaffold
+    Column
+        Flexible
+            Container   [ <-Por la parte de Decoration ]
+                Column
+                    Text            "Hello, what do you want to watch?"
+                    Container
+                        IconButton  [Lupa]
+                        TextInput   "Search"
+        Flexible
+            Container   
+                ListView -> SrinkWrap:true | Column -> SingleChildScrollview
+                    MOVIE-LIST-WIDGET
+                    MOVIE-LIST-WIDGET
+
+MOVIE-LIST-WIDGET
+-----------------
+
+Container
+    Column
+        Row
+            Text    "RECOMMENDED FOR YOU"
+            TextButton  "See all" / "Next" / "Show More" ?
+        Row
+            ListView
+                Card | GestureDetector-Container ?
+                    Column
+                        Image       [Caratula]
+                        Text        "Aquaman"
+                        VALORATION-WIDGET
+            
+VALORATION-WIDGET
+-----------------
+Row
+    Image   [Estrella]
+    Image   [Estrella]
+    Image   [Estrella]
+    Image   [Estrella]
+    Image   [Estrella]
+
+
+
+
+
+
+
