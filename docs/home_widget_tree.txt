@@ -1,7 +1,6 @@
 
 HOME PAGE
 ---------
-
 Scaffold
     Column
         Flexible
@@ -13,13 +12,12 @@ Scaffold
                         TextInput   "Search"
         Flexible
             Container   
-                ListView -> SrinkWrap:true | Column -> SingleChildScrollview
+                ListView -> SrinkWrap:true | Column + SingleChildScrollview
                     MOVIE-LIST-WIDGET
                     MOVIE-LIST-WIDGET
 
 MOVIE-LIST-WIDGET
 -----------------
-
 Container
     Column
         Row

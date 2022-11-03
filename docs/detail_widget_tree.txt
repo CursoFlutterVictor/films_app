@@ -1,0 +1,48 @@
+
+HOME PAGE
+---------
+Scaffold
+    Column
+        Flexible
+            Stack
+                Container | ClipRRect ?
+                    Image   [Fit]
+                Row
+                    IconButton  (Back)
+                    IconButton  (Favorito)
+        Flexible
+            ListView / SingleChildScrollview + Column
+                Row
+                    Text    "Aquaman"
+                    Icon    (4K)
+                Row
+                    TextButton | Container + GestureDetector    "Wath Now"
+                    VALORATION-WIDGET
+                Text
+                ListView
+                    ACTOR-WIDGET
+                    ACTOR-WIDGET
+                    ACTOR-WIDGET
+                INFORMATION-WIDGET
+                INFORMATION-WIDGET
+                INFORMATION-WIDGET
+
+ACTOR-WIDGET
+------------
+Column
+    CircleAvatar    (Portrait)
+    Text            "Jason Momoa"
+
+INFORMATION-WIDGET
+------------------
+Column
+    CROSS-INFORMATION  
+    CROSS-INFORMATION
+    CROSS-INFORMATION
+
+CROSS-INFORMATION-WIDGET
+-----------------
+Row
+    Text    "Studio"
+    Text    "Warner Bros."
+
