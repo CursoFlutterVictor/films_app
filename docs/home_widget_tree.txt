@@ -8,8 +8,9 @@ Scaffold
                 Column
                     Text            "Hello, what do you want to watch?"
                     Container
-                        IconButton  [Lupa]
-                        TextInput   "Search"
+                        Row
+                            IconButton  [Lupa]
+                            TextField   "Search"
         Flexible
             Container   
                 ListView -> SrinkWrap:true | Column + SingleChildScrollview
