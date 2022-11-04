@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(91, 161, 210, 1),
-      body: Column(children: [
+      body: Column(children: const [
         Flexible(
             flex: 1,
             child: HomeUpperSearchWidget(

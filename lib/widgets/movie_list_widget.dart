@@ -19,8 +19,9 @@ class MovieListWidget extends StatelessWidget {
             margin: const EdgeInsets.only(
               top: 10,
               left: 20,
+              right: 20,
             ),
-            height: 400,
+            height: 300,
             width: double.infinity,
             child: Column(
               children: [
@@ -40,7 +41,12 @@ class MovieListWidget extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: null,
-                          child: Text("Show More"),
+                          child: Text(
+                            "Show More",
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
                         )
                       ],
                     ),
@@ -48,47 +54,39 @@ class MovieListWidget extends StatelessWidget {
                 ),
                 Flexible(
                   flex: 6,
-                  child: Container(
-                    color: Colors.blue,
-                    child: Column(
-                      children: [
-                        Flexible(
-                          flex: 1,
-                          child: Obx(
-                            () => ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: controller.pupularMovieList.value!
-                                      .results?.length ??
-                                  0,
-                              itemBuilder: ((context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(right: 20.0),
-                                  child: MovieItemWidget(
-                                    title: controller.pupularMovieList.value!
-                                            .results![index].originalTitle ??
-                                        '',
-                                    src: urlImage(controller.pupularMovieList
-                                        .value!.results![index].posterPath!),
-                                  ),
-                                );
-                              }),
-                            ),
+                  child: Obx(
+                    () => ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount:
+                          controller.pupularMovieList.value!.results?.length ??
+                              0,
+                      itemBuilder: ((context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                            right: 0.0,
                           ),
-                        ),
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Colors.black,
+                          child: MovieItemWidget(
+                            title: controller.pupularMovieList.value!
+                                    .results![index].originalTitle ??
+                                '',
+                            src: urlImage(controller.pupularMovieList.value!
+                                .results![index].posterPath!),
                           ),
-                        ),
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            color: Colors.white,
-                          ),
-                        )
-                      ],
+                        );
+                      }),
                     ),
+                  ),
+                ),
+                Flexible(
+                  flex: 1,
+                  child: Container(
+                    color: Colors.black,
+                  ),
+                ),
+                Flexible(
+                  flex: 1,
+                  child: Container(
+                    color: Colors.white,
                   ),
                 )
               ],

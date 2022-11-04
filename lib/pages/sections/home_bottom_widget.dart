@@ -25,9 +25,6 @@ class HomeBottomWidget extends StatelessWidget {
           child: Column(
             children: const [
               MovieListWidget(),
-              SizedBox(
-                height: 20,
-              ),
               MovieListWidget(),
             ],
           ),
