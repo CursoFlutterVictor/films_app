@@ -38,6 +38,7 @@ class HomeUpperSearchWidget extends StatelessWidget {
                     color: Colors.white,
                   ),
                   SizedBox(width: 5),
+                  // TODO: Esto debe ser un input text
                   Text(
                     "Search",
                     style: TextStyle(color: Colors.white),
