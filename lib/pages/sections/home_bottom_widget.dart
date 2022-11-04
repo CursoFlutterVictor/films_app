@@ -7,29 +7,32 @@ class HomeBottomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-            color: Color.fromRGBO(44, 57, 63, 1),
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20), topRight: Radius.circular(20))),
-        child: ClipRRect(
-          // TODO: Queda un poco raro este recorte
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(60),
-            topRight: Radius.circular(60),
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        color: Color.fromRGBO(44, 57, 63, 1),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
+      child: ClipRRect(
+        // TODO: Queda un poco raro este recorte
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: const [
+              MovieListWidget(),
+              SizedBox(
+                height: 20,
+              ),
+              MovieListWidget(),
+            ],
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                MovieListWidget(),
-                SizedBox(
-                  height: 20,
-                ),
-                MovieListWidget()
-              ],
-            ),
-          ),
-        ));
+        ),
+      ),
+    );
   }
 }

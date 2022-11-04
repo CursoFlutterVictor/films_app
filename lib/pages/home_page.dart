@@ -11,11 +11,14 @@ class HomePage extends StatelessWidget {
       backgroundColor: const Color.fromRGBO(91, 161, 210, 1),
       body: Column(children: [
         Flexible(
-            flex: 3,
+            flex: 1,
             child: HomeUpperSearchWidget(
               textMessage: "Hello, what do you want to watch ?",
             )),
-        Flexible(flex: 6, child: HomeBottomWidget())
+        Flexible(
+          flex: 2,
+          child: HomeBottomWidget(),
+        )
       ]),
     );
   }
