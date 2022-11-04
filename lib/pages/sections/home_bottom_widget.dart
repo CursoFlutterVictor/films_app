@@ -8,6 +8,7 @@ class HomeBottomWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: double.infinity,
       decoration: const BoxDecoration(
         color: Color.fromRGBO(44, 57, 63, 1),
         borderRadius: BorderRadius.only(
@@ -24,6 +25,7 @@ class HomeBottomWidget extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: const [
+              MovieListWidget(),
               MovieListWidget(),
               MovieListWidget(),
             ],

@@ -21,7 +21,7 @@ class MovieListWidget extends StatelessWidget {
               left: 20,
               right: 20,
             ),
-            height: 300,
+            height: 200,
             width: double.infinity,
             child: Column(
               children: [
@@ -77,18 +77,6 @@ class MovieListWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    color: Colors.black,
-                  ),
-                ),
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    color: Colors.white,
-                  ),
-                )
               ],
             ),
           );
