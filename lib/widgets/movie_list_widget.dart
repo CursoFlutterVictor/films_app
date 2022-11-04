@@ -12,8 +12,9 @@ class MovieListWidget extends StatelessWidget {
     return GetBuilder<MovieListController>(
         init: MovieListController(),
         builder: (controller) {
+          // Llamada al servicio
           controller.fillPopularList();
-
+          // Retorno del widget
           return Container(
             margin: const EdgeInsets.only(
               top: 10,
