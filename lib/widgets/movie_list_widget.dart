@@ -21,7 +21,7 @@ class MovieListWidget extends StatelessWidget {
               left: 20,
               right: 20,
             ),
-            height: 200,
+            height: 250,
             width: double.infinity,
             child: Column(
               children: [

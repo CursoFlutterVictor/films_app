@@ -12,23 +12,47 @@ class MovieItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.green,
-      child: Column(
-        children: [
-          Image.network(
-            src,
-            width: 100,
-            height: 100,
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-              color: Colors.white,
+    return SizedBox(
+      width: 120,
+      height: 300,
+      child: Card(
+          elevation: 0,
+          color: Colors.transparent,
+          //color: Colors.green,
+          child: Column(children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(20),
+              ),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Image.network(
+                  src,
+                  width: 200,
+                  height: 150,
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
-          )
-        ],
-      ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 5,
+                  left: 3,
+                ),
+                child: Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ])),
     );
   }
 }
