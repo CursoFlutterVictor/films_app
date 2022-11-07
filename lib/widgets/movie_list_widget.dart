@@ -58,19 +58,19 @@ class MovieListWidget extends StatelessWidget {
                     () => ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount:
-                          controller.pupularMovieList.value!.results?.length ??
-                              0,
+                          controller.movieList.value!.results?.length ?? 0,
                       itemBuilder: ((context, index) {
                         return Padding(
                           padding: const EdgeInsets.only(
                             right: 0.0,
                           ),
                           child: MovieItemWidget(
-                            title: controller.pupularMovieList.value!
-                                    .results![index].originalTitle ??
+                            title: controller.movieList.value!.results![index]
+                                    .originalTitle ??
                                 '',
-                            src: urlImage(controller.pupularMovieList.value!
-                                .results![index].posterPath!),
+                            src: urlImage(controller
+                                .movieList.value!.results![index].posterPath!),
+                            movie: controller.movieList.value!.results![index],
                           ),
                         );
                       }),

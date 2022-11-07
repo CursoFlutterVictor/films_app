@@ -4,13 +4,14 @@ import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class MovieListController extends GetxController {
-  final Rx<MovieList?> pupularMovieList = MovieList().obs;
-  RxBool popularloaded = false.obs;
+  final Rx<MovieList?> movieList = MovieList().obs;
+  RxBool listLoaded = false.obs;
+  MovieResult? selectedMovie;
 
   Future<void> fillPopularList() async {
     MovieList? list = await ServiceGetMovies.getPopularMovies(page: 1);
-    pupularMovieList.value = list;
-    popularloaded.value = true;
+    movieList.value = list;
+    listLoaded.value = true;
   }
 
   final Rx<MovieList?> searchMovieList = MovieList().obs;
