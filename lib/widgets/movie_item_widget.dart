@@ -1,17 +1,15 @@
 import 'package:films_app/controllers/movie_list_controller.dart';
 import 'package:films_app/models/movie_list_model.dart';
+import 'package:films_app/utils/url_utils.dart';
+import 'package:films_app/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MovieItemWidget extends StatelessWidget {
-  final String title;
-  final String src;
   final MovieResult movie;
 
   const MovieItemWidget({
     Key? key,
-    required this.title,
-    required this.src,
     required this.movie,
   }) : super(key: key);
 
@@ -39,7 +37,7 @@ class MovieItemWidget extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Image.network(
-                    src,
+                    urlImage(movie.posterPath!),
                     width: 200,
                     height: 150,
                     fit: BoxFit.fill,
@@ -54,7 +52,7 @@ class MovieItemWidget extends StatelessWidget {
                     left: 3,
                   ),
                   child: Text(
-                    title,
+                    movie.voteAverage.toString(),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.start,
@@ -65,35 +63,9 @@ class MovieItemWidget extends StatelessWidget {
                 ),
               ),
               // TODO: Redimentsionar row para evitar overflow
-              Row(
-                children: const [
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 20,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 20,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 20,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 20,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 20,
-                  ),
-                ],
-              ),
+              RatingWidget(
+                rating: movie.voteAverage!,
+              )
             ],
           ),
         ),

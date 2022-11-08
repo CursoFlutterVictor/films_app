@@ -25,6 +25,7 @@ class ServiceGetMovies {
         /*
         movieList.results?.forEach((element) {
           print(element.title);
+          print(element.voteAverage);
         });
         */
 
