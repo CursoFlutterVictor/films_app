@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class HomeUpperSearchWidget extends StatelessWidget {
+class HomeUpperWidget extends StatelessWidget {
   final String textMessage;
-  const HomeUpperSearchWidget({Key? key, required this.textMessage})
+  const HomeUpperWidget({Key? key, required this.textMessage})
       : super(key: key);
 
   @override

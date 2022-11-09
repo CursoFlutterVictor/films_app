@@ -20,9 +20,13 @@ class MovieListWidget extends StatelessWidget {
         displayText = "RECOMMENDED FOR YOU";
         controller.fillPopularList();
         break;
-      default:
+      case MovieListType.topRated:
         displayText = "TOP RATED";
         controller.fillTopRatedList();
+        break;
+      default:
+        displayText = "UPCOMING";
+        controller.fillUpcomingList();
     }
 
     return GetBuilder<MovieListController>(
@@ -76,8 +80,11 @@ class MovieListWidget extends StatelessWidget {
                       case MovieListType.mostPopulars:
                         paintList = controller.popularMovieList.value!;
                         break;
-                      default:
+                      case MovieListType.topRated:
                         paintList = controller.topRatedMovieList.value!;
+                        break;
+                      default:
+                        paintList = controller.upcomingMovieList.value!;
                     }
 
                     return ListView.builder(

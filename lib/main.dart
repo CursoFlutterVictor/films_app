@@ -1,4 +1,3 @@
-import 'package:films_app/pages/home_page.dart';
 import 'package:films_app/routes/app_pages.dart';
 import 'package:films_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +19,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      // Ojo usar home e initialRoute a la vez puede provocar que un Get.off no
+      // funcione como se espera, y al pulsar back vuelva a la pagina cerrada-
+      // Dejo solo configurado el  initialRoute.
+      //home: const LoginPage(),
+      //initialRoute: AppRoutes.LOGIN,
       initialRoute: AppRoutes.HOME,
       getPages: AppPages.routes,
     );

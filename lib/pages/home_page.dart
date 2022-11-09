@@ -1,7 +1,7 @@
 import 'package:films_app/controllers/movie_list_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:films_app/pages/sections/home_upper_search_widget.dart';
-import 'package:films_app/pages/sections/home_bottom_widget.dart';
+import 'package:films_app/pages/home_sections/home_upper_widget.dart';
+import 'package:films_app/pages/home_sections/home_bottom_widget.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       body: Column(children: const [
         Flexible(
             flex: 1,
-            child: HomeUpperSearchWidget(
+            child: HomeUpperWidget(
               textMessage: "Hello, what do you want to watch ?",
             )),
         Flexible(

@@ -6,8 +6,10 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 class MovieListController extends GetxController {
   final Rx<MovieList?> popularMovieList = MovieList().obs;
   final Rx<MovieList?> topRatedMovieList = MovieList().obs;
+  final Rx<MovieList?> upcomingMovieList = MovieList().obs;
   RxBool popularListLoaded = false.obs;
   RxBool topRatedListLoaded = false.obs;
+  RxBool upcomingListLoaded = false.obs;
 
   MovieResult? selectedMovie;
 
@@ -24,6 +26,14 @@ class MovieListController extends GetxController {
       MovieList? list = await ServiceGetMovies.getTopRatedMovies(page: 1);
       topRatedMovieList.value = list;
       topRatedListLoaded.value = true;
+    }
+  }
+
+  Future<void> fillUpcomingList() async {
+    if (!upcomingListLoaded.value) {
+      MovieList? list = await ServiceGetMovies.getUpcomingMovies(page: 1);
+      upcomingMovieList.value = list;
+      upcomingListLoaded.value = true;
     }
   }
 

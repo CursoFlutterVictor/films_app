@@ -27,7 +27,7 @@ class HomeBottomWidget extends StatelessWidget {
             children: const [
               MovieListWidget(type: MovieListType.mostPopulars),
               MovieListWidget(type: MovieListType.topRated),
-              MovieListWidget(type: MovieListType.mostPopulars),
+              MovieListWidget(type: MovieListType.upcoming),
             ],
           ),
         ),
