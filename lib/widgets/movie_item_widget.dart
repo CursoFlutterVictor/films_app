@@ -52,7 +52,8 @@ class MovieItemWidget extends StatelessWidget {
                     left: 3,
                   ),
                   child: Text(
-                    movie.voteAverage.toString(),
+                    //movie.voteAverage.toString(),
+                    movie.title!,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.start,
@@ -62,7 +63,6 @@ class MovieItemWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              // TODO: Redimentsionar row para evitar overflow
               RatingWidget(
                 rating: movie.voteAverage!,
               )

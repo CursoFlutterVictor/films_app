@@ -1,3 +1,4 @@
+import 'package:films_app/utils/type_list_emum.dart';
 import 'package:films_app/widgets/movie_list_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,6 @@ class HomeBottomWidget extends StatelessWidget {
         ),
       ),
       child: ClipRRect(
-        // TODO: Queda un poco raro este recorte
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
@@ -25,9 +25,9 @@ class HomeBottomWidget extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              MovieListWidget(),
-              MovieListWidget(),
-              MovieListWidget(),
+              MovieListWidget(type: MovieListType.mostPopulars),
+              MovieListWidget(type: MovieListType.topRated),
+              MovieListWidget(type: MovieListType.mostPopulars),
             ],
           ),
         ),
