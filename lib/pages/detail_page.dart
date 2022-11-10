@@ -23,7 +23,7 @@ class DetailPage extends StatelessWidget {
             children: [
               SizedBox(
                 width: double.infinity,
-                height: 350,
+                height: 450,
                 child: Stack(
                   children: [
                     Image.network(
