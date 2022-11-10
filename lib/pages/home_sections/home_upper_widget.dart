@@ -1,3 +1,4 @@
+import 'package:films_app/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeUpperWidget extends StatelessWidget {
@@ -37,18 +38,7 @@ class HomeUpperWidget extends StatelessWidget {
                     Radius.circular(10),
                   ),
                 ),
-                child: Row(children: const [
-                  Icon(
-                    Icons.search,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 5),
-                  // TODO: Esto debe ser un input text
-                  Text(
-                    "Search",
-                    style: TextStyle(color: Colors.white),
-                  )
-                ]),
+                child: const SearchBarWidget(),
               )
             ]),
       ),
