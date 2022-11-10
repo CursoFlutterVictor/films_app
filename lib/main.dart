@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       // Dejo solo configurado el  initialRoute.
       //home: const LoginPage(),
       //initialRoute: AppRoutes.LOGIN,
-      initialRoute: AppRoutes.HOME,
+      initialRoute: AppRoutes.LOGIN,
       getPages: AppPages.routes,
     );
   }

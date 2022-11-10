@@ -1,3 +1,6 @@
+import 'dart:ffi';
+
+import 'package:films_app/services/auth_firebase.dart';
 import 'package:films_app/widgets/login_form_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +17,11 @@ class LoginPage extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
+            FloatingActionButton(
+              onPressed: () {
+                AuthFirebase().signInAnonymous();
+              },
+            ),
             const SizedBox(
               height: 30,
             ),
