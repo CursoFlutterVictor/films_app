@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "229278343960",
+    "project_id": "testproject-2986c",
+    "storage_bucket": "testproject-2986c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229278343960:android:966fbc560842449edef46d",
+        "android_client_info": {
+          "package_name": "com.example.films_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229278343960-vqs2cspr5pu4gpiakq5fribln87vbm63.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt7L3Oy-_d6HZ1dTgvfHnBWTVZufZgUSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229278343960-vqs2cspr5pu4gpiakq5fribln87vbm63.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "229278343960-3h06lrfoc5evk4qbdam95u9ahcirs9ho.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.filmsApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
