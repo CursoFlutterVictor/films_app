@@ -1,3 +1,4 @@
+import 'package:films_app/controllers/auth_controller.dart';
 import 'package:films_app/routes/app_pages.dart';
 import 'package:films_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,12 @@ class MyApp extends StatelessWidget {
       // Dejo solo configurado el  initialRoute.
       //home: const LoginPage(),
       //initialRoute: AppRoutes.LOGIN,
-      initialRoute: AppRoutes.HOME,
+      initialBinding: BindingsBuilder(
+        () {
+          Get.put<AuthController>(AuthController());
+        },
+      ),
+      initialRoute: AppRoutes.LOGIN,
       getPages: AppPages.routes,
     );
   }

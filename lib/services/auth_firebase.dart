@@ -1,14 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthFirebase {
-  signInAnonymous() async {
+  Future<User?> signInAnonymous() async {
     try {
       final userCredential = await FirebaseAuth.instance.signInAnonymously();
+
       //print(userCredential);
       print("Signed in with temporary account.");
 
       User? user = userCredential.user!;
       print(user.isAnonymous);
+
+      return user;
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case "operation-not-allowed":
@@ -18,5 +21,6 @@ class AuthFirebase {
           print("Unknown error.");
       }
     }
+    return null;
   }
 }

@@ -1,5 +1,7 @@
+import 'package:films_app/controllers/auth_controller.dart';
 import 'package:films_app/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeUpperWidget extends StatelessWidget {
   final String textMessage;
@@ -8,6 +10,7 @@ class HomeUpperWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.find();
     return Container(
       height: double.infinity,
       width: double.infinity,
@@ -20,6 +23,11 @@ class HomeUpperWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              FloatingActionButton(
+                onPressed: () {
+                  authController.signOut();
+                },
+              ),
               Text(
                 textMessage,
                 style: const TextStyle(

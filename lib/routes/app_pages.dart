@@ -1,3 +1,4 @@
+import 'package:films_app/bindings/auth_binding.dart';
 import 'package:films_app/bindings/movie_list_binding.dart';
 import 'package:films_app/pages/detail_page.dart';
 import 'package:films_app/pages/home_page.dart';
@@ -20,6 +21,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.LOGIN,
       page: () => const LoginPage(),
+      binding: AuthBinding(),
     ),
     // GetPage(
     //   name: Routes.REGISTER,

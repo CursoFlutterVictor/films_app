@@ -1,14 +1,12 @@
-import 'package:films_app/controllers/auth_controller.dart';
+import 'package:films_app/services/auth_firebase.dart';
 import 'package:films_app/widgets/login_form_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    AuthController authController = Get.find();
     return Scaffold(
       backgroundColor: Colors.orange,
       body: Container(
@@ -19,14 +17,14 @@ class LoginPage extends StatelessWidget {
           children: [
             FloatingActionButton(
               onPressed: () {
-                authController.signInAnonymous();
+                AuthFirebase().signInAnonymous();
               },
             ),
             const SizedBox(
               height: 30,
             ),
             const Text(
-              "¡BIENVENIDO!",
+              "REGISTRATE!",
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
