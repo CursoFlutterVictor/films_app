@@ -14,9 +14,24 @@ class AuthController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Stream<User?> get user => _auth.authStateChanges();
 
-  signInAnonymous() async {
-    firebaseUser.value = await AuthFirebase().signInAnonymous();
-    print(firebaseUser.value?.isAnonymous ?? "");
+  loginAnonymous() async {
+    //firebaseUser.value = await AuthFirebase().signInAnonymous();
+    final user = await AuthFirebase().signInAnonymous();
+    print(user);
+  }
+
+  registerWithEmailPass(String email, String password) async {
+    final userCredential = await _auth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    print(userCredential);
+  }
+
+  loginWithEmailPass(String email, String password) async {
+    final userCredential = await _auth.signInWithEmailAndPassword(
+        email: email, password: password);
+    print(userCredential);
   }
 
   Future<void> signOut() async {

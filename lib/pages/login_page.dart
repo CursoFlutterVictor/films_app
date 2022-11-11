@@ -19,7 +19,7 @@ class LoginPage extends StatelessWidget {
           children: [
             FloatingActionButton(
               onPressed: () {
-                authController.signInAnonymous();
+                authController.loginAnonymous();
               },
             ),
             const SizedBox(

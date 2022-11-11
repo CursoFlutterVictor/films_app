@@ -4,10 +4,12 @@ class AppPaths {
   static const HOME = "/HOME";
   static const DETAIL = "/DETAIL";
   static const LOGIN = "/LOGIN";
+  static const REGISTER = "/REGISTER";
 }
 
 class AppRoutes {
   static const HOME = AppPaths.HOME;
   static const DETAIL = AppPaths.DETAIL;
   static const LOGIN = AppPaths.LOGIN;
+  static const REGISTER = AppPaths.REGISTER;
 }

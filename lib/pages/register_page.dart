@@ -1,9 +1,9 @@
 import 'package:films_app/services/auth_firebase.dart';
-import 'package:films_app/widgets/login_form_widget.dart';
+import 'package:films_app/widgets/register_form_widget.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class LoginPage extends StatelessWidget {
               height: 30,
             ),
             Expanded(
-              child: CardLoginForm(),
+              child: CardRegisterForm(),
             ),
             const SizedBox(
               height: 30,

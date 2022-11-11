@@ -3,8 +3,8 @@ import 'package:films_app/utils/validators_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CardLoginForm extends StatelessWidget {
-  CardLoginForm({super.key});
+class CardRegisterForm extends StatelessWidget {
+  CardRegisterForm({super.key});
 
   final _formKey = GlobalKey<FormState>();
 
@@ -71,10 +71,11 @@ class CardLoginForm extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    authController.loginWithEmailPass(
-                        authController.emailController.text,
-                        authController.passwordController.text);
-                    Get.offNamed("/HOME");
+                    authController.registerWithEmailPass(
+                      authController.emailController.text,
+                      authController.passwordController.text,
+                    );
+                    //Get.offNamed("/HOME");
                     //print("Este formulario es verdadero");
                   } else {
                     //print("vuelve a intentarlo");
@@ -86,7 +87,7 @@ class CardLoginForm extends StatelessWidget {
                   color: Colors.pink,
                   child: const Center(
                     child: Text(
-                      "LOGIN",
+                      "REGISTRAR",
                       style: TextStyle(
                         color: Colors.white,
                       ),
