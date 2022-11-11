@@ -5,7 +5,6 @@ class AuthFirebase {
     try {
       final userCredential = await FirebaseAuth.instance.signInAnonymously();
 
-      //print(userCredential);
       print("Signed in with temporary account.");
 
       User? user = userCredential.user!;
@@ -24,26 +23,25 @@ class AuthFirebase {
     return null;
   }
 
-  Future<User?> signInWithEmailAndPassword(
+  Future<UserCredential?> signInWithEmailAndPassword(
       String email, String password) async {
     try {
       final userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
-      //print(userCredential);
-      print("Signed in with user $email.");
-
       User? user = userCredential.user!;
-      print(user.isAnonymous);
+      print("Signed in with user ${user.email}");
 
-      return user;
+      print(userCredential);
+
+      return userCredential;
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case "operation-not-allowed":
           print("Anonymous auth hasn't been enabled for this project.");
           break;
         default:
-          print("Unknown error.");
+          print(e.code.toString());
       }
     }
     return null;

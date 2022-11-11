@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           Get.put<AuthController>(AuthController());
         },
       ),
-      initialRoute: AppRoutes.LOGIN,
+      initialRoute: AppRoutes.HOME,
       getPages: AppPages.routes,
     );
   }

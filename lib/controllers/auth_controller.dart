@@ -29,8 +29,8 @@ class AuthController extends GetxController {
   }
 
   loginWithEmailPass(String email, String password) async {
-    final userCredential = await _auth.signInWithEmailAndPassword(
-        email: email, password: password);
+    final userCredential =
+        await AuthFirebase().signInWithEmailAndPassword(email, password);
     print(userCredential);
   }
 
@@ -49,9 +49,16 @@ class AuthController extends GetxController {
   // Cuando cambia el usuario logado comprobamos
   handleAuthChanged(User? firebaseUser) async {
     if (firebaseUser?.isAnonymous ?? false) {
+      print("Entrando");
       Get.offAllNamed(AppRoutes.HOME);
     } else {
-      Get.offAllNamed(AppRoutes.LOGIN);
+      if (firebaseUser == null) {
+        print("Saliendo");
+        Get.offAllNamed(AppRoutes.LOGIN);
+      } else {
+        print("Entrando");
+        Get.offAllNamed(AppRoutes.HOME);
+      }
     }
   }
 }

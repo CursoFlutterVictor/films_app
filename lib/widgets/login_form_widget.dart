@@ -74,7 +74,7 @@ class CardLoginForm extends StatelessWidget {
                     authController.loginWithEmailPass(
                         authController.emailController.text,
                         authController.passwordController.text);
-                    Get.offNamed("/HOME");
+                    //Get.offNamed("/HOME");
                     //print("Este formulario es verdadero");
                   } else {
                     //print("vuelve a intentarlo");
