@@ -18,14 +18,14 @@ class LoginPage extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
-            FloatingActionButton(
-              onPressed: () async {
-                final error = await authController.loginAnonymous();
-                if (error != null) {
-                  showMaterialDialog("Error", error);
-                }
-              },
-            ),
+            // FloatingActionButton(
+            //   onPressed: () async {
+            //     final error = await authController.loginAnonymous();
+            //     if (error != null) {
+            //       showMaterialDialog("Error", error);
+            //     }
+            //   },
+            // ),
             const SizedBox(
               height: 30,
             ),
@@ -46,6 +46,15 @@ class LoginPage extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
+            // Row(
+            //   children: const [
+            //     Text("If you are not registered "),
+            //     TextButton(
+            //       onPressed: null,
+            //       child: Text("click here"),
+            //     )
+            //   ],
+            // )
           ],
         ),
       ),

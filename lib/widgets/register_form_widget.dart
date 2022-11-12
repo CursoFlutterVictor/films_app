@@ -2,6 +2,7 @@ import 'package:films_app/controllers/auth_controller.dart';
 import 'package:films_app/utils/show_dialog.dart';
 import 'package:films_app/utils/validators_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CardRegisterForm extends StatelessWidget {
   CardRegisterForm({super.key});
@@ -78,6 +79,8 @@ class CardRegisterForm extends StatelessWidget {
                     );
                     if (error != null) {
                       showMaterialDialog("Error", error);
+                    } else {
+                      showMaterialDialog("Register", "Register successful!");
                     }
                     //Get.offNamed("/HOME");
                     //print("Este formulario es verdadero");
@@ -97,6 +100,24 @@ class CardRegisterForm extends StatelessWidget {
                       ),
                     ),
                   ),
+                ),
+              ),
+              Flexible(
+                child: Row(
+                  children: [
+                    const Text("If are already registerd"),
+                    TextButton(
+                      onPressed: () {
+                        Get.offAllNamed("/LOGIN");
+                      },
+                      child: const Text(
+                        "sign in",
+                        style: TextStyle(
+                          color: Color.fromRGBO(0, 102, 204, 1.0),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             ],

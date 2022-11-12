@@ -11,7 +11,7 @@ class MovieListController extends GetxController {
   RxBool topRatedListLoaded = false.obs;
   RxBool upcomingListLoaded = false.obs;
 
-  MovieResult? selectedMovie;
+  Rx<MovieResult?> selectedMovie = MovieResult().obs;
 
   Future<void> fillPopularList() async {
     if (!popularListLoaded.value) {

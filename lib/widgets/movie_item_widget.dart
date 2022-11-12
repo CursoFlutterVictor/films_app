@@ -18,7 +18,7 @@ class MovieItemWidget extends StatelessWidget {
     MovieListController movieListController = Get.find();
     return GestureDetector(
       onTap: () {
-        movieListController.selectedMovie = movie;
+        movieListController.selectedMovie.value = movie;
         Get.toNamed("/DETAIL");
       },
       child: SizedBox(

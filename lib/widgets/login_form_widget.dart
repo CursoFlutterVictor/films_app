@@ -2,6 +2,7 @@ import 'package:films_app/controllers/auth_controller.dart';
 import 'package:films_app/utils/show_dialog.dart';
 import 'package:films_app/utils/validators_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CardLoginForm extends StatelessWidget {
   CardLoginForm({super.key});
@@ -92,6 +93,24 @@ class CardLoginForm extends StatelessWidget {
                       ),
                     ),
                   ),
+                ),
+              ),
+              Flexible(
+                child: Row(
+                  children: [
+                    const Text("If you are not registered"),
+                    TextButton(
+                      onPressed: () {
+                        Get.offAllNamed("/REGISTER");
+                      },
+                      child: const Text(
+                        "click here",
+                        style: TextStyle(
+                          color: Color.fromRGBO(0, 102, 204, 1.0),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             ],

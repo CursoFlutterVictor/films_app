@@ -2,7 +2,6 @@ import 'package:films_app/routes/app_routes.dart';
 import 'package:films_app/services/auth_firebase.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'dart:core';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {

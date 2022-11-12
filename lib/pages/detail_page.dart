@@ -12,7 +12,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MovieListController movieListController = Get.find();
-    MovieResult movie = movieListController.selectedMovie!;
+    MovieResult movie = movieListController.selectedMovie.value!;
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(44, 57, 63, 1),
