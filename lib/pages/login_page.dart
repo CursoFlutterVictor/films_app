@@ -18,14 +18,14 @@ class LoginPage extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
-            // FloatingActionButton(
-            //   onPressed: () async {
-            //     final error = await authController.loginAnonymous();
-            //     if (error != null) {
-            //       showMaterialDialog("Error", error);
-            //     }
-            //   },
-            // ),
+            FloatingActionButton(
+              onPressed: () async {
+                final error = await authController.loginAnonymous();
+                if (error != null) {
+                  showMaterialDialog("Error", error);
+                }
+              },
+            ),
             const SizedBox(
               height: 30,
             ),

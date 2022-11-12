@@ -23,11 +23,11 @@ class HomeUpperWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              FloatingActionButton(
-                onPressed: () {
-                  authController.signOut();
-                },
-              ),
+              // FloatingActionButton(
+              //   onPressed: () {
+              //     authController.signOut();
+              //   },
+              // ),
               Text(
                 textMessage,
                 style: const TextStyle(

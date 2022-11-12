@@ -1,37 +1,15 @@
 import 'package:films_app/controllers/movie_list_controller.dart';
 import 'package:films_app/models/movie_list_model.dart';
-import 'package:films_app/utils/movie_list_type_emum.dart';
 import 'package:films_app/widgets/movie_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MovieListWidget extends StatelessWidget {
-  final MovieListType type;
-  const MovieListWidget({Key? key, required this.type}) : super(key: key);
+class MovieSearchResultsWidget extends StatelessWidget {
+  const MovieSearchResultsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    String displayText;
-    MovieListController controller = Get.find();
-
-    // Llamada al servicio
-    switch (type) {
-      case MovieListType.mostPopulars:
-        displayText = "RECOMMENDED FOR YOU";
-        controller.fillPopularList();
-        break;
-      case MovieListType.topRated:
-        displayText = "TOP RATED";
-        controller.fillTopRatedList();
-        break;
-      case MovieListType.upcoming:
-        displayText = "UPCOMING";
-        controller.fillUpcomingList();
-        break;
-      case MovieListType.searchResults:
-        displayText = "SEARCH RESULTS";
-        controller.fillSearchList();
-    }
+    String displayText = "SEARCH RESULTS";
 
     return GetBuilder<MovieListController>(
         init: MovieListController(),
@@ -78,18 +56,7 @@ class MovieListWidget extends StatelessWidget {
                 Flexible(
                   flex: 6,
                   child: Obx(() {
-                    // Segun el tipo pintaremos una lista u otra
-                    MovieList paintList;
-                    switch (type) {
-                      case MovieListType.mostPopulars:
-                        paintList = controller.popularMovieList.value!;
-                        break;
-                      case MovieListType.topRated:
-                        paintList = controller.topRatedMovieList.value!;
-                        break;
-                      default:
-                        paintList = controller.upcomingMovieList.value!;
-                    }
+                    MovieList paintList = controller.searchMovieList.value!;
 
                     return ListView.builder(
                       scrollDirection: Axis.horizontal,

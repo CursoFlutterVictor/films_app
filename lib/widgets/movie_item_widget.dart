@@ -8,13 +8,36 @@ import 'package:get/get.dart';
 class MovieItemWidget extends StatelessWidget {
   final MovieResult movie;
 
-  const MovieItemWidget({
-    Key? key,
-    required this.movie,
-  }) : super(key: key);
+  const MovieItemWidget({Key? key, required this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Image? img;
+
+    if (movie.posterPath == null) {
+      img = Image.asset(
+        "assets/nocover.jpg",
+        width: 200,
+        height: 150,
+        fit: BoxFit.fill,
+      );
+    } else {
+      img = Image.network(
+        urlImage(movie.posterPath!),
+        width: 200,
+        height: 150,
+        fit: BoxFit.fill,
+        errorBuilder: (context, error, stackTrace) {
+          return Image.asset(
+            "assets/nocover.jpg",
+            width: 200,
+            height: 150,
+            fit: BoxFit.fill,
+          );
+        },
+      );
+    }
+
     MovieListController movieListController = Get.find();
     return GestureDetector(
       onTap: () {
@@ -36,12 +59,7 @@ class MovieItemWidget extends StatelessWidget {
                 ),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Image.network(
-                    urlImage(movie.posterPath!),
-                    width: 200,
-                    height: 150,
-                    fit: BoxFit.fill,
-                  ),
+                  child: img,
                 ),
               ),
               Align(

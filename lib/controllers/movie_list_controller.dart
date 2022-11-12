@@ -7,11 +7,15 @@ class MovieListController extends GetxController {
   final Rx<MovieList?> popularMovieList = MovieList().obs;
   final Rx<MovieList?> topRatedMovieList = MovieList().obs;
   final Rx<MovieList?> upcomingMovieList = MovieList().obs;
+  final Rx<MovieList?> searchMovieList = MovieList().obs;
   RxBool popularListLoaded = false.obs;
   RxBool topRatedListLoaded = false.obs;
   RxBool upcomingListLoaded = false.obs;
+  RxBool searchListLoaded = false.obs;
 
   Rx<MovieResult?> selectedMovie = MovieResult().obs;
+
+  RxBool searchMode = false.obs;
 
   Future<void> fillPopularList() async {
     if (!popularListLoaded.value) {
@@ -37,17 +41,15 @@ class MovieListController extends GetxController {
     }
   }
 
-  // final Rx<MovieList?> searchMovieList = MovieList().obs;
-  // RxBool searchLoaded = false.obs;
-
-  // Future<void> fillSearchList({String? query}) async {
-  //   MovieList? list =
-  //       await ServiceGetMovies.searchMovies(query: query, page: 1);
-  //   if (list != null) {
-  //     searchMovieList.value = list;
-  //     searchLoaded.value = true;
-  //   } else {
-  //     searchLoaded.value = false;
-  //   }
-  // }
+  Future<void> fillSearchList({String? query}) async {
+    MovieList? list =
+        await ServiceGetMovies.searchMovies(query: query, page: 1);
+    if (list != null) {
+      searchMovieList.value = list;
+      searchListLoaded.value = true;
+      searchMode.value = true;
+    } else {
+      searchListLoaded.value = false;
+    }
+  }
 }

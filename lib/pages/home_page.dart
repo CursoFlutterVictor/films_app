@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
         Flexible(
           flex: 2,
           child: HomeBottomWidget(),
-        )
+        ),
       ]),
     );
   }
