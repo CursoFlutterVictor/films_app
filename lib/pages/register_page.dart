@@ -1,12 +1,15 @@
-import 'package:films_app/services/auth_firebase.dart';
+import 'package:films_app/controllers/auth_controller.dart';
+import 'package:films_app/utils/show_dialog.dart';
 import 'package:films_app/widgets/register_form_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.find();
     return Scaffold(
       backgroundColor: Colors.orange,
       body: Container(
@@ -16,8 +19,11 @@ class RegisterPage extends StatelessWidget {
         child: Column(
           children: [
             FloatingActionButton(
-              onPressed: () {
-                AuthFirebase().signInAnonymous();
+              onPressed: () async {
+                final error = await authController.loginAnonymous();
+                if (error != null) {
+                  showMaterialDialog("Error", error);
+                }
               },
             ),
             const SizedBox(

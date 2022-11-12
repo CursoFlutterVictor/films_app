@@ -1,7 +1,7 @@
 import 'package:films_app/controllers/auth_controller.dart';
+import 'package:films_app/utils/show_dialog.dart';
 import 'package:films_app/utils/validators_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CardLoginForm extends StatelessWidget {
   CardLoginForm({super.key});
@@ -12,6 +12,7 @@ class CardLoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthController authController = AuthController();
     FormValidator formValidator = FormValidator();
+
     return Form(
       key: _formKey,
       child: Card(
@@ -69,15 +70,14 @@ class CardLoginForm extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    authController.loginWithEmailPass(
+                    final error = await authController.signInWithEmailPassword(
                         authController.emailController.text,
                         authController.passwordController.text);
-                    //Get.offNamed("/HOME");
-                    //print("Este formulario es verdadero");
-                  } else {
-                    //print("vuelve a intentarlo");
+                    if (error != null) {
+                      showMaterialDialog("Error", error);
+                    }
                   }
                 },
                 child: Container(

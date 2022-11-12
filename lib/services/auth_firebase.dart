@@ -1,49 +1,65 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthFirebase {
-  Future<User?> signInAnonymous() async {
+  Future<User?> loginAnonymous() async {
     try {
       final userCredential = await FirebaseAuth.instance.signInAnonymously();
 
-      print("Signed in with temporary account.");
-
       User? user = userCredential.user!;
-      print(user.isAnonymous);
+
+      //print("Signed in with temporary account.");
 
       return user;
-    } on FirebaseAuthException catch (e) {
-      switch (e.code) {
-        case "operation-not-allowed":
-          print("Anonymous auth hasn't been enabled for this project.");
-          break;
-        default:
-          print("Unknown error.");
-      }
+    } catch (e) {
+      rethrow;
     }
-    return null;
   }
 
-  Future<UserCredential?> signInWithEmailAndPassword(
-      String email, String password) async {
+  Future<User?> signInWithEmailAndPassword(
+    String email,
+    String password,
+  ) async {
     try {
       final userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
-      User? user = userCredential.user!;
-      print("Signed in with user ${user.email}");
+      User? user = userCredential.user;
 
-      print(userCredential);
+      //print("Signed in with user ${user!.email}");
 
-      return userCredential;
+      return user;
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
+        case "user-not-found":
+          throw ("User not found");
         case "operation-not-allowed":
-          print("Anonymous auth hasn't been enabled for this project.");
-          break;
+          throw ("Anonymous auth hasn't been enabled for this project.");
+        case "wrong-password":
+          throw ("Wrong Password");
         default:
-          print(e.code.toString());
+          throw ("Login Error");
       }
     }
-    return null;
+  }
+
+  Future<User?> registerWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      final userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+
+      User? user = userCredential.user;
+
+      //print("User registered ${user!.email}");
+
+      return user;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<void> signOut() async {
+    //print("Sign out...");
+    return FirebaseAuth.instance.signOut();
   }
 }

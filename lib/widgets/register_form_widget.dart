@@ -1,7 +1,7 @@
 import 'package:films_app/controllers/auth_controller.dart';
+import 'package:films_app/utils/show_dialog.dart';
 import 'package:films_app/utils/validators_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CardRegisterForm extends StatelessWidget {
   CardRegisterForm({super.key});
@@ -69,12 +69,16 @@ class CardRegisterForm extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    authController.registerWithEmailPass(
+                    final error =
+                        await authController.registerWithEmailPassword(
                       authController.emailController.text,
                       authController.passwordController.text,
                     );
+                    if (error != null) {
+                      showMaterialDialog("Error", error);
+                    }
                     //Get.offNamed("/HOME");
                     //print("Este formulario es verdadero");
                   } else {

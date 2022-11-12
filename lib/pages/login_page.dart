@@ -1,4 +1,5 @@
 import 'package:films_app/controllers/auth_controller.dart';
+import 'package:films_app/utils/show_dialog.dart';
 import 'package:films_app/widgets/login_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,8 +19,11 @@ class LoginPage extends StatelessWidget {
         child: Column(
           children: [
             FloatingActionButton(
-              onPressed: () {
-                authController.loginAnonymous();
+              onPressed: () async {
+                final error = await authController.loginAnonymous();
+                if (error != null) {
+                  showMaterialDialog("Error", error);
+                }
               },
             ),
             const SizedBox(
