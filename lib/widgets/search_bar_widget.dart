@@ -37,8 +37,9 @@ class SearchBarWidget extends StatelessWidget {
               ),
             ),
             controller: searhBarController.searchFieldController,
-            onSubmitted: (String value) {
-              movieListController.fillSearchList(query: value);
+            onSubmitted: (String value) async {
+              await movieListController.fillSearchList(query: value);
+              Get.toNamed("/SEARCH");
             },
           ),
         ),
@@ -51,7 +52,6 @@ class SearchBarWidget extends StatelessWidget {
           color: Colors.white,
           onPressed: () {
             searhBarController.searchFieldController.clear();
-            movieListController.searchMode.value = false;
             FocusManager.instance.primaryFocus?.unfocus();
           },
         )

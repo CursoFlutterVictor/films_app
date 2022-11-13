@@ -14,6 +14,29 @@ class DetailPage extends StatelessWidget {
     MovieListController movieListController = Get.find();
     MovieResult movie = movieListController.selectedMovie.value!;
 
+    Image? img;
+
+    if (movie.posterPath == null) {
+      img = Image.asset(
+        "assets/nocover.jpg",
+        fit: BoxFit.fill,
+        width: double.infinity,
+      );
+    } else {
+      img = Image.network(
+        urlImage(movie.posterPath!),
+        fit: BoxFit.fill,
+        width: double.infinity,
+        errorBuilder: (context, error, stackTrace) {
+          return Image.asset(
+            "assets/nocover.jpg",
+            fit: BoxFit.fill,
+            width: double.infinity,
+          );
+        },
+      );
+    }
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(44, 57, 63, 1),
       body: SingleChildScrollView(
@@ -26,11 +49,7 @@ class DetailPage extends StatelessWidget {
                 height: 450,
                 child: Stack(
                   children: [
-                    Image.network(
-                      urlImage(movie.posterPath!),
-                      fit: BoxFit.fill,
-                      width: double.infinity,
-                    ),
+                    img,
                     Container(
                       height: double.infinity,
                       width: double.infinity,

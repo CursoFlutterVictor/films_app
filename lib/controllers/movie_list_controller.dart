@@ -15,8 +15,6 @@ class MovieListController extends GetxController {
 
   Rx<MovieResult?> selectedMovie = MovieResult().obs;
 
-  RxBool searchMode = false.obs;
-
   Future<void> fillPopularList() async {
     if (!popularListLoaded.value) {
       MovieList? list = await ServiceGetMovies.getPopularMovies(page: 1);
@@ -47,7 +45,6 @@ class MovieListController extends GetxController {
     if (list != null) {
       searchMovieList.value = list;
       searchListLoaded.value = true;
-      searchMode.value = true;
     } else {
       searchListLoaded.value = false;
     }

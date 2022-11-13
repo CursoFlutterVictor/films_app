@@ -5,6 +5,7 @@ class AppPaths {
   static const DETAIL = "/DETAIL";
   static const LOGIN = "/LOGIN";
   static const REGISTER = "/REGISTER";
+  static const SEARCH = "/SEARCH";
 }
 
 class AppRoutes {
@@ -12,4 +13,5 @@ class AppRoutes {
   static const DETAIL = AppPaths.DETAIL;
   static const LOGIN = AppPaths.LOGIN;
   static const REGISTER = AppPaths.REGISTER;
+  static const SEARCH = AppPaths.SEARCH;
 }

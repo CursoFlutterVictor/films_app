@@ -28,56 +28,57 @@ class MovieListWidget extends StatelessWidget {
         displayText = "UPCOMING";
         controller.fillUpcomingList();
         break;
-      case MovieListType.searchResults:
-        displayText = "SEARCH RESULTS";
-        controller.fillSearchList();
+      // case MovieListType.searchResults:
+      //   displayText = "SEARCH RESULTS";
+      //   controller.fillSearchList();
     }
 
     return GetBuilder<MovieListController>(
-        init: MovieListController(),
-        builder: (controller) {
-          // Retorno del widget
-          return Container(
-            margin: const EdgeInsets.only(
-              top: 10,
-              left: 20,
-              right: 20,
-            ),
-            height: 250,
-            width: double.infinity,
-            child: Column(
-              children: [
-                Flexible(
-                  flex: 1,
-                  child: SizedBox(
-                    height: double.infinity,
-                    // color: Colors.red,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          //"RECOMMENDED FOR YOU",
-                          displayText,
-                          style: const TextStyle(
-                            color: Colors.white,
+      init: MovieListController(),
+      builder: (controller) {
+        // Retorno del widget
+        return Container(
+          margin: const EdgeInsets.only(
+            top: 10,
+            left: 20,
+            right: 20,
+          ),
+          height: 250,
+          width: double.infinity,
+          child: Column(
+            children: [
+              Flexible(
+                flex: 1,
+                child: SizedBox(
+                  height: double.infinity,
+                  // color: Colors.red,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        //"RECOMMENDED FOR YOU",
+                        displayText,
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      const TextButton(
+                        onPressed: null,
+                        child: Text(
+                          "Show More",
+                          style: TextStyle(
+                            color: Colors.grey,
                           ),
                         ),
-                        const TextButton(
-                          onPressed: null,
-                          child: Text(
-                            "Show More",
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                 ),
-                Flexible(
-                  flex: 6,
-                  child: Obx(() {
+              ),
+              Flexible(
+                flex: 6,
+                child: Obx(
+                  () {
                     // Segun el tipo pintaremos una lista u otra
                     MovieList paintList;
                     switch (type) {
@@ -105,11 +106,13 @@ class MovieListWidget extends StatelessWidget {
                         );
                       }),
                     );
-                  }),
+                  },
                 ),
-              ],
-            ),
-          );
-        });
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

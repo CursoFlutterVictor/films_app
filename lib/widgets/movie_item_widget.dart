@@ -46,7 +46,7 @@ class MovieItemWidget extends StatelessWidget {
       },
       child: SizedBox(
         width: 120,
-        height: 300,
+        height: 205,
         child: Card(
           elevation: 0,
           color: Colors.transparent,
