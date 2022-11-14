@@ -39,6 +39,9 @@ class AuthController extends GetxController {
         Get.offAllNamed(AppRoutes.LOGIN);
       } else {
         //print("Entrando");
+        // Si autentica con usuario de firebase, cargo sus datos de firestore
+        firestoreUser.value =
+            await FirestoreDataBase().getUserData(uid: firebaseUser.uid);
         Get.offAllNamed(AppRoutes.HOME);
       }
     }
@@ -69,13 +72,6 @@ class AuthController extends GetxController {
         uid: firebaseUser.value!.uid,
         email: email,
         name: name,
-      );
-
-      // Almaceno en el controlador los datos que he grabado
-      firestoreUser.value = UserData(
-        uid: firebaseUser.value!.uid,
-        name: name,
-        email: email,
       );
     } catch (e) {
       returnMessage = e.toString();
