@@ -31,24 +31,24 @@ class AuthController extends GetxController {
   // la pagina correspondiente de la app.
   void handleAuthChanged(User? firebaseUser) async {
     if (firebaseUser?.isAnonymous ?? false) {
-      //print("Entrando");
       Get.offAllNamed(AppRoutes.HOME);
     } else {
       if (firebaseUser == null) {
-        //print("Saliendo");
         Get.offAllNamed(AppRoutes.LOGIN);
       } else {
-        //print("Entrando");
         // Si autentica con usuario de firebase, cargo sus datos de firestore
-        firestoreUser.value =
-            await FirestoreDataBase().getUserData(uid: firebaseUser.uid);
+        try {
+          firestoreUser.value =
+              await FirestoreDataBase().getUserData(uid: firebaseUser.uid);
+        } catch (e) {
+          rethrow;
+        }
         Get.offAllNamed(AppRoutes.HOME);
       }
     }
   }
 
   Future<String?> loginAnonymous() async {
-    //firebaseUser.value = await AuthFirebase().signInAnonymous();
     String? returnMessage;
     try {
       firebaseUser.value = await AuthFirebase().loginAnonymous();
@@ -87,8 +87,9 @@ class AuthController extends GetxController {
         password,
       );
 
-      firestoreUser.value =
-          await FirestoreDataBase().getUserData(uid: firebaseUser.value!.uid);
+      // El handler ya se encarga de cargar los datos de firestore
+      // firestoreUser.value =
+      //     await FirestoreDataBase().getUserData(uid: firebaseUser.value!.uid);
     } catch (e) {
       returnMessage = e.toString();
     }

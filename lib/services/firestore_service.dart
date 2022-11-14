@@ -22,7 +22,6 @@ class FirestoreDataBase {
 
       return true;
     } catch (e) {
-      print(e);
       rethrow;
     }
   }
@@ -32,11 +31,10 @@ class FirestoreDataBase {
       DocumentSnapshot doc =
           await firestoreDB.collection(collection).doc(uid).get();
 
-      print(doc.data());
+      //print(doc.data());
 
       return UserData.fromJson(doc.data() as Map<String, dynamic>);
     } catch (e) {
-      print(e);
       rethrow;
     }
   }
