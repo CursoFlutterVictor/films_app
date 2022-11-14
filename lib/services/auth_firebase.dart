@@ -1,3 +1,4 @@
+import 'package:films_app/services/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthFirebase {
@@ -49,6 +50,16 @@ class AuthFirebase {
           .createUserWithEmailAndPassword(email: email, password: password);
 
       User? user = userCredential.user;
+
+      // Guardamos la informacion aficional en firestore
+      final firebaseResult = await FirestoreDataBase().createNewUser(
+        uid: user!.uid,
+        email: user.email!,
+      );
+
+      if (firebaseResult == false) {
+        throw ("Error creating new user in firestore database");
+      }
 
       //print("User registered ${user!.email}");
 

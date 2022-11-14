@@ -74,6 +74,7 @@ class CardRegisterForm extends StatelessWidget {
                   if (_formKey.currentState!.validate()) {
                     final error =
                         await authController.registerWithEmailPassword(
+                      authController.nameController.text,
                       authController.emailController.text,
                       authController.passwordController.text,
                     );

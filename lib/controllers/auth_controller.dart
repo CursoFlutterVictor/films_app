@@ -1,5 +1,7 @@
+import 'package:films_app/models/user_data_model.dart';
 import 'package:films_app/routes/app_routes.dart';
 import 'package:films_app/services/auth_firebase.dart';
+import 'package:films_app/services/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,6 +14,7 @@ class AuthController extends GetxController {
 
   // Este es el usuario que hay autenticado
   Rxn<User> firebaseUser = Rxn<User>();
+  Rxn<UserData> firestoreUser = Rxn<UserData>();
 
   // Este stream escucha los cambios de estado en la autenticacion
   Stream<User?> get userStream => FirebaseAuth.instance.authStateChanges();
@@ -53,13 +56,26 @@ class AuthController extends GetxController {
   }
 
   Future<String?> registerWithEmailPassword(
-      String email, String password) async {
+      String name, String email, String password) async {
     String? returnMessage;
 
     try {
       firebaseUser.value = await AuthFirebase().registerWithEmailAndPassword(
         email,
         password,
+      );
+
+      await FirestoreDataBase().createNewUser(
+        uid: firebaseUser.value!.uid,
+        email: email,
+        name: name,
+      );
+
+      // Almaceno en el controlador los datos que he grabado
+      firestoreUser.value = UserData(
+        uid: firebaseUser.value!.uid,
+        name: name,
+        email: email,
       );
     } catch (e) {
       returnMessage = e.toString();
@@ -74,6 +90,9 @@ class AuthController extends GetxController {
         email,
         password,
       );
+
+      firestoreUser.value =
+          await FirestoreDataBase().getUserData(uid: firebaseUser.value!.uid);
     } catch (e) {
       returnMessage = e.toString();
     }
