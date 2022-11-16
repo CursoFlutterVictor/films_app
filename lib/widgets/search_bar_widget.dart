@@ -1,5 +1,6 @@
 import 'package:films_app/controllers/movie_list_controller.dart';
 import 'package:films_app/controllers/search_controller.dart';
+import 'package:films_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -39,7 +40,7 @@ class SearchBarWidget extends StatelessWidget {
             controller: searhBarController.searchFieldController,
             onSubmitted: (String value) async {
               await movieListController.fillSearchList(query: value);
-              Get.toNamed("/SEARCH");
+              Get.toNamed(AppRoutes.WRAPPEDLIST, arguments: "SEARCH RESULTS");
             },
           ),
         ),

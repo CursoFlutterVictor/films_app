@@ -1,6 +1,9 @@
+import 'package:films_app/controllers/auth_controller.dart';
 import 'package:films_app/controllers/movie_list_controller.dart';
+import 'package:films_app/controllers/user_controller.dart';
 import 'package:films_app/models/movie_list_model.dart';
 import 'package:films_app/utils/url_utils.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +15,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MovieListController movieListController = Get.find();
+    UserController userController = Get.find();
     MovieResult movie = movieListController.selectedMovie.value!;
 
     Image? img;
@@ -73,13 +77,23 @@ class DetailPage extends StatelessWidget {
                               Get.back();
                             },
                           ),
-                          IconButton(
-                            icon: const Icon(
-                              Icons.favorite_border,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
-                          ),
+                          Obx(() {
+                            bool isFav = userController
+                                .movieIsFavourite(movie.id.toString());
+
+                            return IconButton(
+                              icon: Icon(
+                                isFav
+                                    ? Icons.favorite_rounded
+                                    : Icons.favorite_border,
+                                color: isFav ? Colors.pink : Colors.white,
+                              ),
+                              onPressed: () {
+                                userController
+                                    .toggleFavouriteMovie(movie.id.toString());
+                              },
+                            );
+                          }),
                         ],
                       ),
                     )

@@ -11,6 +11,16 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       name: json['name'] as String?,
       email: json['email'] as String,
       isAdmin: json['isAdmin'] as bool? ?? false,
+      imageURL: json['imageURL'] as String?,
+      favMovies: (json['favMovies'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      pendingMovies: (json['pendingMovies'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      watchedMovies: (json['watchedMovies'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
@@ -18,4 +28,8 @@ Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
       'name': instance.name,
       'email': instance.email,
       'isAdmin': instance.isAdmin,
+      'imageURL': instance.imageURL,
+      'favMovies': instance.favMovies,
+      'pendingMovies': instance.pendingMovies,
+      'watchedMovies': instance.watchedMovies,
     };

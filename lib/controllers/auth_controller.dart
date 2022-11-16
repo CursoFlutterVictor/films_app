@@ -99,4 +99,16 @@ class AuthController extends GetxController {
   Future<void> signOut() async {
     AuthFirebase().signOut();
   }
+
+  Future<bool> updateUser() async {
+    /* UserModel newUser = UserModel(
+      uid: userDb.value!.uid,
+      email: userDb.value!.email,
+      urlImage: userDb.value!.urlImage,
+      isAdmin: userDb.value!.isAdmin,
+    );*/
+    bool response =
+        await FirestoreDataBase().updateUser(user: firestoreUser.value!);
+    return response;
+  }
 }

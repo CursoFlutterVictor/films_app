@@ -38,4 +38,17 @@ class FirestoreDataBase {
       rethrow;
     }
   }
+
+  Future<bool> updateUser({required UserData user}) async {
+    try {
+      //Se puede hacer con un .set como el ejemplo anterior
+      await firestoreDB.collection(collection).doc(user.uid).update(
+            user.toJson(),
+          );
+
+      return true;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

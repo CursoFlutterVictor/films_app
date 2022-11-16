@@ -9,12 +9,20 @@ class UserData {
   String? name;
   String email;
   bool isAdmin;
+  String? imageURL;
+  List<String>? favMovies;
+  List<String>? pendingMovies;
+  List<String>? watchedMovies;
 
   UserData(
       {required this.uid,
       this.name,
       required this.email,
-      this.isAdmin = false});
+      this.isAdmin = false,
+      this.imageURL,
+      this.favMovies,
+      this.pendingMovies,
+      this.watchedMovies});
 
   factory UserData.fromJson(Map<String, dynamic> json) =>
       _$UserDataFromJson(json);
