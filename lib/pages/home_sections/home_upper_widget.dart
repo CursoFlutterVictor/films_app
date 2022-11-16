@@ -29,20 +29,24 @@ class HomeUpperWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              //*******************************************//
-              // FloatingActionButton(
-              //   onPressed: () {
-              //     authController.signOut();
-              //   },
-              // ),
-              FloatingActionButton(
-                onPressed: () async {
-                  await userController.fillFavouriteMovies();
-                  wrappedListController.wrappedMovieList.value =
-                      userController.favMovies.value;
-                  Get.toNamed(AppRoutes.WRAPPEDLIST,
-                      arguments: "FAVOURITE LIST");
-                },
+              Row(
+                children: [
+                  //*******************************************//
+                  FloatingActionButton(
+                    onPressed: () {
+                      authController.signOut();
+                    },
+                  ),
+                  FloatingActionButton(
+                    onPressed: () async {
+                      await userController.fillFavouriteMovies();
+                      wrappedListController.wrappedMovieList.value =
+                          userController.favMovies.value;
+                      Get.toNamed(AppRoutes.WRAPPEDLIST,
+                          arguments: "FAVOURITE LIST");
+                    },
+                  ),
+                ],
               ),
               //*******************************************//
               Text(
