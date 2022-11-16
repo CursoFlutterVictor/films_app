@@ -1,4 +1,4 @@
-import 'package:films_app/widgets/wraped_movies_widget.dart';
+import 'package:films_app/widgets/wrapped_movies_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,7 +42,7 @@ class WrappedListPage extends StatelessWidget {
                 ],
               ),
             ),
-            const WrapedMoviesWidget(),
+            const WrappedMoviesWidget(),
           ],
         ),
       ),

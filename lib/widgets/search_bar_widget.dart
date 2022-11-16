@@ -1,5 +1,6 @@
 import 'package:films_app/controllers/movie_list_controller.dart';
 import 'package:films_app/controllers/search_controller.dart';
+import 'package:films_app/controllers/wrapped_list_controller.dart';
 import 'package:films_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ class SearchBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MovieListController movieListController = Get.find();
+    WrappedListController wrappedListController = Get.find();
     SearchBarController searhBarController = SearchBarController();
 
     return Row(
@@ -40,6 +42,8 @@ class SearchBarWidget extends StatelessWidget {
             controller: searhBarController.searchFieldController,
             onSubmitted: (String value) async {
               await movieListController.fillSearchList(query: value);
+              wrappedListController.wrappedMovieList.value =
+                  movieListController.searchMovieList.value;
               Get.toNamed(AppRoutes.WRAPPEDLIST, arguments: "SEARCH RESULTS");
             },
           ),
