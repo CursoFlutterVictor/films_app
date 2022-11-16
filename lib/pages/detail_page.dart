@@ -1,9 +1,7 @@
-import 'package:films_app/controllers/auth_controller.dart';
 import 'package:films_app/controllers/movie_list_controller.dart';
 import 'package:films_app/controllers/user_controller.dart';
 import 'package:films_app/models/movie_list_model.dart';
 import 'package:films_app/utils/url_utils.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
