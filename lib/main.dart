@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
     //  Forzar orientacion
     //  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Films App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

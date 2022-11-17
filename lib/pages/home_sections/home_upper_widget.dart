@@ -1,10 +1,5 @@
-import 'package:films_app/controllers/auth_controller.dart';
-import 'package:films_app/controllers/user_controller.dart';
-import 'package:films_app/controllers/wrapped_list_controller.dart';
-import 'package:films_app/routes/app_routes.dart';
 import 'package:films_app/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class HomeUpperWidget extends StatelessWidget {
   final String textMessage;
@@ -13,10 +8,6 @@ class HomeUpperWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthController authController = Get.find();
-    UserController userController = Get.find();
-    WrappedListController wrappedListController = Get.find();
-
     return Container(
       height: double.infinity,
       width: double.infinity,
@@ -29,26 +20,26 @@ class HomeUpperWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  //*******************************************//
-                  FloatingActionButton(
-                    onPressed: () {
-                      authController.signOut();
-                    },
-                  ),
-                  FloatingActionButton(
-                    onPressed: () async {
-                      await userController.fillFavouriteMovies();
-                      wrappedListController.wrappedMovieList.value =
-                          userController.favMovies.value;
-                      Get.toNamed(AppRoutes.WRAPPEDLIST,
-                          arguments: "FAVOURITE LIST");
-                    },
-                  ),
-                ],
-              ),
-              //*******************************************//
+              // Row(
+              //   children: [
+              //     //*******************************************//
+              //     FloatingActionButton(
+              //       onPressed: () {
+              //         authController.signOut();
+              //       },
+              //     ),
+              //     FloatingActionButton(
+              //       onPressed: () async {
+              //         await userController.fillFavouriteMovies();
+              //         wrappedListController.wrappedMovieList.value =
+              //             userController.favMovies.value;
+              //         Get.toNamed(AppRoutes.WRAPPEDLIST,
+              //             arguments: "FAVOURITE LIST");
+              //       },
+              //     ),
+              //   ],
+              // ),
+              // //*******************************************//
               Text(
                 textMessage,
                 style: const TextStyle(
