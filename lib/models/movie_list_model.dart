@@ -70,12 +70,11 @@ class MovieResult {
     originalLanguage = json['original_language'];
     originalTitle = json['original_title'];
     overview = json['overview'];
-    popularity = json['popularity'];
+    popularity = double.parse(json['popularity'].toString());
     posterPath = json['poster_path'];
     releaseDate = json['release_date'];
     title = json['title'];
     video = json['video'];
-    //voteAverage = json['vote_average'];
     voteAverage = double.parse(json['vote_average'].toString());
     voteCount = json['vote_count'];
   }

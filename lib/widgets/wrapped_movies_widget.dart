@@ -9,9 +9,10 @@ class WrappedMoviesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WrappedListController wrappedListController = Get.find();
-    List<Widget> movies = [];
 
     return Obx(() {
+      List<Widget> movies = [];
+
       if (wrappedListController.wrappedMovieList.value!.results != null) {
         for (var element
             in wrappedListController.wrappedMovieList.value!.results!) {
